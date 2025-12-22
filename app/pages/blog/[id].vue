@@ -15,4 +15,8 @@ const { data:post } = await useAsyncData(route.path, () => {
   <NuxtLink to="/blog">Back to Blog</NuxtLink>
  <h1>Post {{ post?.title }} </h1>
 <p>{{ post?.description }}</p>
+
+<hr />
+{{ post?.body }}
+<div v-html="post?.body" />
 </template>
