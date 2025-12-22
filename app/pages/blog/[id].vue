@@ -22,7 +22,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
+  <div class="w-full max-w-(--ui-container) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-4 gap-3 sm:gap-4">
     <NuxtLink to="/blog" class="inline-block mb-4 text-blue-600 hover:text-blue-800">
       ← Back to Blog
     </NuxtLink>
@@ -38,8 +38,8 @@ useSeoMeta({
         <ContentRenderer v-if="post.body" :value="post.body" />
         <div v-else-if="post.content" v-html="post.content"></div>
         <p v-else class="text-gray-500">No content available.</p>
-        <template v-if="post.data_points">
-          <LineChart :chart-data="post.data_points" />
+        <template v-if="post?.meta?.data_points">
+          <LineChart :chart-data="{'labels': post?.meta?.data_points.map(dp => dp.label), 'datasets':[{'data': post?.meta?.data_points.map(dp => dp.value)}]}" />
         </template>
       </div>
       

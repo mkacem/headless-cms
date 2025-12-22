@@ -61,7 +61,7 @@ const useGetChart = () => {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      tension: 0.4,
+      // tension: 0.4,
       scales: {
         x: {
           grid: {
