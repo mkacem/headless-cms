@@ -5,6 +5,9 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxt/ui'
   ],
+  experimental: {
+    payloadExtraction: false,
+  },
 
   devtools: {
     enabled: true
