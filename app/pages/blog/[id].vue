@@ -38,7 +38,12 @@ useSeoMeta({
         <ContentRenderer v-if="post.body" :value="post.body" />
         <div v-else-if="post.content" v-html="post.content"></div>
         <p v-else class="text-gray-500">No content available.</p>
+        <template v-if="post.data_points">
+          <LineChart :chart-data="post.data_points" />
+        </template>
       </div>
+      
+
     </article>
     
     <div v-else class="text-center py-8">
