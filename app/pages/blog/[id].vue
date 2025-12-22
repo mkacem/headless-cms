@@ -17,6 +17,8 @@ const { data:post } = await useAsyncData(route.path, () => {
 <p>{{ post?.description }}</p>
 
 <hr />
-{{ post?.body }}
-<div v-html="post?.body" />
+
+<template v-if="post?.body">
+<ContentRenderer  :value="post?.body" />
+</template>
 </template>
