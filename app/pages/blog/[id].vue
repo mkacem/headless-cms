@@ -1,9 +1,10 @@
 <script setup lang="ts">
   const route = useRoute()
 // const { data: home } = await useAsyncData(() => queryCollection('content').path('/blog').all())
-const { post } = await useAsyncData(route.path, () => {
+const { data:post } = await useAsyncData(route.path, () => {
   return queryCollection('blog').path(route.path).first()
 })
+
 // useSeoMeta({
 //   title: home.value?.title,
 //   description: home.value?.description
@@ -11,6 +12,7 @@ const { post } = await useAsyncData(route.path, () => {
 </script>
 
 <template>
+  <NuxtLink to="/blog">Back to Blog</NuxtLink>
  <h1>Post {{ post?.title }} </h1>
 <p>{{ post?.description }}</p>
 </template>
