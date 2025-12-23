@@ -10,6 +10,9 @@ body_fr: |-
   ![test](/img/vector-90.png "test 2")
 
   {:zoom="false"}
+testimonials:
+  - quote: Everything is awesome!
+    author: Jhon doe
 data_points:
   - label: "1990"
     value: "1.1"
