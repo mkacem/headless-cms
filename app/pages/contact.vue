@@ -108,9 +108,9 @@ const submitForm = async (e: any) => {
   disable.value = true;
   error.value = null;
   const formData = new FormData(form.value);
-  formData.append("access_key", "e69a5c0f-aa6b-463a-b511-cd678a4612f0");
+  // formData.append("access_key", "e69a5c0f-aa6b-463a-b511-cd678a4612f0");
   try {
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch("https://submit-form.com/Z4cMmgNof", {
       method: "POST",
       body: formData
     });
