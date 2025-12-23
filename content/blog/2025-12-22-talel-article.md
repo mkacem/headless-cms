@@ -7,7 +7,7 @@ description_fr: description fr
 body_fr: |-
   fr body lorem ipsum
 
-  ![](/img/vector-90.png)
+  ![test](/img/vector-90.png "test 2")
 
   {:zoom="false"}
 data_points:
