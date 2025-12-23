@@ -21,4 +21,4 @@ data_points:
 ---
 rest ets kshdkjsd
 
-![](/img/vector-90.png)
+![](/img/vector-90.png){:zoom="false"}
