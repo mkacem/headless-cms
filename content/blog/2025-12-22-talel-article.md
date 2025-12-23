@@ -1,11 +1,8 @@
 ---
 title_fr: article talel
-title_en: talel article
 date: 2025-12-22T12:21:00.000+01:00
 description_fr: description fr
-description_en: en description
 body_fr: '![](/img/vector-90.png){:zoom="false"}'
-body_en: '![](/img/vector-90.png){:zoom="false"}'
 title: talel article
 data_points:
   - label: "1990"
@@ -23,7 +20,6 @@ data_points:
   - label: "2022"
     value: "3.3"
     color: "#ff0000"
-description: descropion
 ---
 rest ets kshdkjsd
 

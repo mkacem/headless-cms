@@ -46,13 +46,13 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Title fr', name: 'title_fr', widget: 'string' }
-      - { label: 'Title en', name: 'title_en', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title Fr', name: 'title_fr', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description fr', name: 'description_fr', widget: 'string' }
-      - { label: 'Description en', name: 'description_en', widget: 'string' }
-      - { label: 'Body fr', name: 'body_fr', widget: 'markdown' }
-      - { label: 'Body en', name: 'body_en', widget: 'markdown' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Description FR', name: 'description_fr', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Body Fr', name: 'body_fr', widget: 'markdown' }
       - label: "Data Points"
         name: "data_points"
         widget: "list"

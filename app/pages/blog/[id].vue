@@ -39,13 +39,13 @@ const paginatedPeople = computed(() => {
     
     <article v-if="post">
       <header class="mb-6">
-        <h1 class="text-3xl font-bold mb-2">{{ post.title }}</h1>
-        <p v-if="post.description" class="text-gray-600 text-lg">{{ post.description }}</p>
+        <h1 class="text-3xl font-bold mb-2">{{ post.meta['title_'+$i18n.locale] || post.title}}</h1>
+        <p v-if="post.meta['description_'+$i18n.locale] || post.description" class="text-gray-600 text-lg">{{ post.meta['description_'+$i18n.locale] || post.description}}</p>
         <p v-if="post.date" class="text-sm text-gray-500 mt-2">{{ new Date(post.date).toLocaleDateString() }}</p>
       </header>
-
+<pre>{{ post }}</pre>
       <div class="prose max-w-none">
-        <ContentRenderer v-if="post.body" :value="post.body" />
+        <ContentRenderer v-if="post.meta['body_'+$i18n.locale] || post.body" :value="post.meta['body_'+$i18n.locale] || post.body" />
         <div v-else-if="post.content" v-html="post.content"></div>
         <p v-else class="text-gray-500">No content available.</p>
         <template v-if="post?.meta?.data_points">
