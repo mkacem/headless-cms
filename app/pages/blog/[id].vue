@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<<script setup lang="ts">
 const route = useRoute()
 
 // Use a more stable key for useAsyncData to prevent hydration issues
 const { data: post } = await useAsyncData(`blog-${route.params.id}`, () => {
-  return queryCollection('blog').path(route.path).first()
+  return queryCollection('blog').path('/blog/' + route.params.id).first()
 })
 
 // Ensure post exists, redirect if not
@@ -33,7 +33,7 @@ const paginatedPeople = computed(() => {
 
 <template>
   <div class="w-full max-w-(--ui-container) mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:grid py-4 gap-3 sm:gap-4">
-    <NuxtLink to="/blog" class="inline-block mb-4 text-blue-600 hover:text-blue-800">
+    <NuxtLink :to="$localePath('/blog')" class="inline-block mb-4 text-blue-600 hover:text-blue-800">
       ← Back to Blog
     </NuxtLink>
     
@@ -69,4 +69,4 @@ const paginatedPeople = computed(() => {
       <p class="text-gray-500">Loading post...</p>
     </div>
   </div>
-</template>
+</template>>

@@ -3,8 +3,18 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@nuxt/content',
-    '@nuxt/ui'
+    '@nuxt/ui', 
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US', dir: 'ltr' },
+      { code: 'fr', name: 'French', language: 'fr-FR' },
+      { code: 'ar', name: 'Arabic', language: 'ar-AR', dir: 'rtl' },
+    ],
+    strategy: 'prefix',
+    defaultLocale: 'en',
+  },
   experimental: {
     payloadExtraction: false,
   },
