@@ -20,7 +20,8 @@ collections:
     nested:
       depth: 100
       summary: '{{title}}'
-      subfolders: false
+      subfolders: true
+    meta: { path: { widget: string, label: 'Path', index_file: 'index', visible: true } }
   - name: pages
     label: Pages
     label_singular: Page
@@ -45,10 +46,13 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title fr', name: 'title_fr', widget: 'string' }
+      - { label: 'Title en', name: 'title_en', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Description fr', name: 'description_fr', widget: 'string' }
+      - { label: 'Description en', name: 'description_en', widget: 'string' }
+      - { label: 'Body fr', name: 'body_fr', widget: 'markdown' }
+      - { label: 'Body en', name: 'body_en', widget: 'markdown' }
       - label: "Data Points"
         name: "data_points"
         widget: "list"
