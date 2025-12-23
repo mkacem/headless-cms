@@ -1,9 +1,15 @@
 ---
+title: talel article
 title_fr: article talel
 date: 2025-12-22T12:21:00.000+01:00
+description: main description
 description_fr: description fr
-body_fr: '![](/img/vector-90.png){:zoom="false"}'
-title: talel article
+body_fr: |-
+  fr body lorem ipsum
+
+  ![](/img/vector-90.png)
+
+  {:zoom="false"}
 data_points:
   - label: "1990"
     value: "1.1"
