@@ -19,6 +19,16 @@ useSeoMeta({
   title: post.value?.title,
   description: post.value?.description
 })
+
+
+// --- 2. Pagination state variables ---
+const page = ref(1);
+const itemsPerPage = 2; // You can change this to 10, 20, etc.
+const paginatedPeople = computed(() => {
+  const start = (page.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return post.value?.meta?.data_points?.slice(start, end);
+});
 </script>
 
 <template>
@@ -40,8 +50,17 @@ useSeoMeta({
         <p v-else class="text-gray-500">No content available.</p>
         <template v-if="post?.meta?.data_points">
           <LineChart :chart-data="{'labels': post?.meta?.data_points.map(dp => dp.label), 'datasets':[{'data': post?.meta?.data_points.map(dp => dp.value)}]}" />
+          <UTable :data="paginatedPeople" class="flex-1" />
+  
+          <!-- A simple footer for spacing and centering -->
+          <div class="mt-6 flex justify-center">
+            <!-- The UPagination component drives the 'page' ref -->
+            <UPagination v-model:page="page" :items-per-page="2" :total="post?.meta?.data_points.length" />
+          </div>
+              
         </template>
       </div>
+      
       
 
     </article>

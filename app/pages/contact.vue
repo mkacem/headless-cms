@@ -108,27 +108,62 @@ const submitForm = async (e: any) => {
   disable.value = true;
   error.value = null;
   const formData = new FormData(form.value);
+
   // formData.append("access_key", "e69a5c0f-aa6b-463a-b511-cd678a4612f0");
-  try {
-    const response = await fetch("https://submit-form.com/Z4cMmgNof", {
-      method: "POST",
-      body: formData
-    });
+  // try {
 
-    const data = await response.json();
 
-    if (response.ok) {
-      alert("Success! Your message has been sent.");
-      form.value.reset();
-    } else {
-      alert("Error: " + data.message);
-    }
 
-  } catch (error) {
-    alert("Something went wrong. Please try again.");
-  } finally {
-    disable.value = false;
-  }
+    fetch("https://submit-form.com/Z4cMmgNof", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          from: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+          _email: {
+            from: formData.get("email"),
+            subject: "New Contact Form Submission",
+            template: {
+              title: false,
+              footer: false,
+            },
+          },
+        }),
+      })
+      .then(function (response) {
+        form.value.reset();
+        disable.value = false;
+      })
+      .catch(function (error) {
+        disable.value = false;
+      });
+
+
+
+
+    // const response = await fetch("https://submit-form.com/Z4cMmgNof", {
+    //   method: "POST",
+    //   body: formData
+    // });
+
+    // const data = await response.json();
+
+    // if (response.ok) {
+    //   alert("Success! Your message has been sent.");
+    //   form.value.reset();
+    // } else {
+    //   alert("Error: " + data.message);
+    // }
+
+  // } catch (error) {
+  //   alert("Something went wrong. Please try again.");
+  // } finally {
+  //   disable.value = false;
+  // }
 }
 
 </script>
