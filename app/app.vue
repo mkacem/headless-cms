@@ -54,6 +54,9 @@ useSeoMeta({
     <USeparator icon="i-simple-icons-nuxtdotjs" />
 
     <UFooter>
+      <template #top>
+        <FooterMenu />
+      </template>
       <template #left>
         <p class="text-sm text-muted">
           Built with Nuxt UI • © {{ new Date().getFullYear() }}
