@@ -1,5 +1,6 @@
 ---
 menu_name: menu header
+title: header-menu
 menu_items:
   - label: Home
     label_fr: Accueil
