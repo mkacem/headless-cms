@@ -8,6 +8,7 @@ body_fr: |-
   fr body lorem ipsum
 
   ![test](/img/vector-90.png "test 2")
+featured_image: /img/galaxy_loop.gif
 testimonials:
   - quote: Everything is awesome!
     author: Jhon doe
