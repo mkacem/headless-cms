@@ -16,7 +16,7 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Menu name', name: 'menu_name', widget: 'string' }
+      - { label: 'title', name: 'title', widget: 'string' }
       - label: "Menu Items"
         name: "menu_items"
         widget: "list"
