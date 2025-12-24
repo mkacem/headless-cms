@@ -32,13 +32,10 @@ useSeoMeta({
         <NuxtLink to="/">
           <AppLogo class="w-auto h-6 shrink-0" />
         </NuxtLink>
-
-        <TemplateMenu />
       </template>
-
+      <NavigationMenu />
       <template #right>
         <UColorModeButton />
-
         <UButton
           to="https://github.com/nuxt-ui-templates/starter"
           target="_blank"

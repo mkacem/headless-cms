@@ -16,8 +16,8 @@ if (!post.value) {
 
 // Set SEO meta after ensuring post exists
 useSeoMeta({
-  title: post.value?.title,
-  description: post.value?.description
+  title: post.value?.meta?.['title_'+useNuxtApp().$i18n.locale.value] || post.value?.title,
+  description: post.value?.meta?.['description_'+useNuxtApp().$i18n.locale.value] || post.value?.description
 })
 
 
@@ -43,10 +43,11 @@ const paginatedPeople = computed(() => {
         <p v-if="post.meta['description_'+$i18n.locale] || post.description" class="text-gray-600 text-lg">{{ post.meta['description_'+$i18n.locale] || post.description}}</p>
         <p v-if="post.date" class="text-sm text-gray-500 mt-2">{{ new Date(post.date).toLocaleDateString() }}</p>
       </header>
-<pre>{{ post }}</pre>
+ 
       <div class="prose max-w-none">
-        <ContentRenderer v-if="post.meta['body_'+$i18n.locale] || post.body" :value="post.meta['body_'+$i18n.locale] || post.body" />
-        <div v-else-if="post.content" v-html="post.content"></div>
+        <MDC v-if="post.meta['body_'+$i18n.locale]" :value="post?.meta['body_'+$i18n.locale]"/>
+        <ContentRenderer v-else-if="post.body":value="post.body" />
+        
         <p v-else class="text-gray-500">No content available.</p>
         <template v-if="post?.meta?.data_points">
           <LineChart :chart-data="{'labels': post?.meta?.data_points.map(dp => dp.label), 'datasets':[{'data': post?.meta?.data_points.map(dp => dp.value)}]}" />

@@ -10,6 +10,10 @@ export default defineContentConfig({
       type: 'page',
       source: 'blog/*.md'
     }),
+    mainMenu: defineCollection({
+      type: 'data',
+      source: 'menus/*.md'
+    }),
     pages: defineCollection({
       type: 'page',
       source: 'pages/**/*.md'

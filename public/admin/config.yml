@@ -7,6 +7,33 @@ media_folder: public/img
 public_folder: /img
 
 collections:
+  - name: 'menus'
+    label: 'Menus'
+    folder: 'content/menus'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Menu name', name: 'menu_name', widget: 'string' }
+      - label: "Menu Items"
+        name: "menu_items"
+        widget: "list"
+        summary: "{{label}} ({{value}})" # A helpful summary for collapsed list items
+        fields:
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            hint: "The label for the menu item (e.g., 'About Us')"
+          - label: "Label Fr"
+            name: "label_fr"
+            widget: "string"
+            hint: "The French label for the menu item (e.g., 'À propos de nous')"
+          - label: "Path"
+            name: "path"
+            widget: "string" # Using the number widget ensures numerical data
+            hint: "The URL path for the menu item (e.g., '/about')"
   - name: en
     label: en
     label_singular: En
@@ -53,6 +80,13 @@ collections:
       - { label: 'Description FR', name: 'description_fr', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Body Fr', name: 'body_fr', widget: 'markdown' }
+      - label: "Testimonials"
+        name: "testimonials"
+        minimize_collapsed: true
+        widget: "list"
+        fields:
+          - {label: Quote, name: quote, widget: string, default: "Everything is awesome!"}
+          - {label: Author, name: author, widget: string }
       - label: "Data Points"
         name: "data_points"
         widget: "list"
