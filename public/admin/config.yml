@@ -80,6 +80,7 @@ collections:
       - { label: 'Description FR', name: 'description_fr', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Body Fr', name: 'body_fr', widget: 'markdown' }
+      - { label: 'Featured Image', name: 'featured_image', widget: 'image' }
       - label: "Testimonials"
         name: "testimonials"
         minimize_collapsed: true
