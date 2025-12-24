@@ -14,7 +14,6 @@
       active: (e.path!='/' && route.path.startsWith(localePath(e.path))) || route.path === localePath(e.path)
     })
   ) || [])
-  console.log(items.value)
 </script>
 
 <template>

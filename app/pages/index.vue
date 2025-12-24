@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import CarouselNews from '~/components/CarouselNews.vue';
+
+</script>
+
 <template>
   <div>
     <UPageHero
@@ -72,5 +77,8 @@
         }]"
       />
     </UPageSection>
+    <div class="container">
+      <CarouselNews  />
+    </div>
   </div>
 </template>
