@@ -2,7 +2,6 @@
 // const { data: home } = await useAsyncData(() => queryCollection('content').path('/blog').all())
 // const { data: pages } = await useAsyncData('pages', () => queryCollection('pages').all())
 const { data: pages } = await useAsyncData(() => queryCollection('pages').path('/pages/hostory/history/').all())
-console.log(pages.value)
 //pages/pages/hostory/history/_index.md
 // useSeoMeta({
 //   title: home.value?.title,

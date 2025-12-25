@@ -8,8 +8,8 @@ public_folder: /img
 
 collections:
   - name: layout/home
-    label: Layout
-    label_singular: Layout
+    label: layout/home
+    label_singular: layout/home
     folder: content/layout/home
     create: true
     fields: [
@@ -17,8 +17,8 @@ collections:
       {name: body, label: Body, widget: markdown},
     ]
   - name: layout/testimonials
-    label: Layout
-    label_singular: Layout
+    label: layout/testimonials
+    label_singular: layout/testimonials
     folder: content/layout/testimonials
     create: true
     fields: [
@@ -34,12 +34,13 @@ collections:
     slug: '{{slug}}'
     editor:
       preview: false
+
+    
     fields:
       - { label: 'title', name: 'title', widget: 'string' }
-      - label: "Menu Items"
-        name: "menu_items"
+      - label: "Section Menu"
+        name: "section_menu"
         widget: "list"
-        summary: "{{label}} ({{value}})" # A helpful summary for collapsed list items
         fields:
           - label: "Label"
             name: "label"
@@ -53,6 +54,80 @@ collections:
             name: "path"
             widget: "string" # Using the number widget ensures numerical data
             hint: "The URL path for the menu item (e.g., '/about')"
+            required: false
+          - label: "Section Menu"
+            name: "section_menu"
+            widget: "list"
+            summary: "{{label}} ({{value}})" # A helpful summary for collapsed list items
+            fields:
+              - label: "Label"
+                name: "label"
+                widget: "string"
+                hint: "The label for the menu item (e.g., 'About Us')"
+              - label: "Label Fr"
+                name: "label_fr"
+                widget: "string"
+                hint: "The French label for the menu item (e.g., 'À propos de nous')"
+              - { label: 'position', name: 'position', widget: 'select', options: ["left", "center", "right"] }
+              - label: "Section Menu Items"
+                name: "section_menu_items"
+                widget: "list"
+                summary: "{{label}} ({{value}})" # A helpful summary for collapsed list items
+                fields:
+                  - label: "Label"
+                    name: "label"
+                    widget: "string"
+                  - label: "Label Fr"
+                    name: "label_fr"
+                    widget: "string"
+                  - label: 'Description'
+                    name: 'menu_description'
+                    widget: 'string' 
+                    required: false
+                  - label: 'Description FR'
+                    name: 'menu_description_fr'
+                    widget: 'string' 
+                    required: false
+                  - label: 'Body'
+                    name: 'menu_body'
+                    widget: 'markdown' 
+                    required: false
+                  - label: 'Body Fr'
+                    name: 'menu_body_fr'
+                    widget: 'markdown' 
+                    required: false
+                  - label: 'Featured Image'
+                    name: 'menu_featured_image'
+                    widget: 'image' 
+                    required: false
+                  - label: "Path"
+                    name: "path"
+                    widget: "string" # Using the number widget ensures numerical data
+                    hint: "The URL path for the menu item (e.g., '/about')"
+                    required: false
+      - label: "Menu Items"
+        name: "menu_items"
+        widget: "list"
+        summary: "{{label}} ({{value}})" # A helpful summary for collapsed list items
+        fields:
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            hint: "The label for the menu item (e.g., 'About Us')"
+          - label: "Label Fr"
+            name: "label_fr"
+            widget: "string"
+            hint: "The French label for the menu item (e.g., 'À propos de nous')"
+          - { label: 'Description', name: 'description', widget: 'string' }
+          - { label: 'Description FR', name: 'description_fr', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Body Fr', name: 'body_fr', widget: 'markdown' }
+          - { label: 'Featured Image', name: 'featured_image', widget: 'image' }
+          - label: "Path"
+            name: "path"
+            widget: "string" # Using the number widget ensures numerical data
+            hint: "The URL path for the menu item (e.g., '/about')"
+            
   - name: en
     label: en
     label_singular: En
