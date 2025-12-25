@@ -24,6 +24,25 @@ section_menu:
               occaecat cupidatat non proident, sunt in culpa qui officia
               deserunt mollit anim id est laborum
             menu_featured_image: /img/ico1.png
+      - label: Our Engagments Models
+        label_fr: Nos models d'engagement
+        position: center
+        section_menu_items:
+          - label: Team as a service
+            label_fr: Service Equipe
+            menu_body: |-
+              #### Duis aute irure dolor in reprehenderit 
+
+              * in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              *  Excepteur sint occaecat cupidatat non proide
+              *  pariatur. Excepteur sint occaeca
+            menu_body_fr: |-
+              #### Duis aute irure dolor in reprehenderit 
+
+              * in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              *  Excepteur sint occaecat cupidatat non proide
+              *  pariatur. Excepteur sint occaeca
+            path: /blog
   - label: Our Talents
     label_fr: Nos talents
     path: /our-talents
