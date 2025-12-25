@@ -24,6 +24,14 @@ section_menu:
               occaecat cupidatat non proident, sunt in culpa qui officia
               deserunt mollit anim id est laborum
             menu_featured_image: /img/ico1.png
+          - label: Operation Exellence
+            label_fr: Operation Exellence
+            menu_description: "unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+              inventore veritatis et quasi architecto beatae vitae dicta sunt "
+            menu_description_fr: "unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+              inventore veritatis et quasi architecto beatae vitae dicta sunt "
       - label: Our Engagments Models
         label_fr: Nos models d'engagement
         position: center
