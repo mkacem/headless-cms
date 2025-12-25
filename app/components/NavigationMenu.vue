@@ -66,7 +66,7 @@ import type { container } from '#build/ui'
                 }"
               >
                 <template #title>
-                  <img :src="subchild.menu_featured_image" width="30"/>
+                  <img v-if="subchild.menu_featured_image" :src="(/^\//.test(subchild.menu_featured_image)?$config.app.baseURL:'') + subchild.menu_featured_image" width="30"/>
                   {{ subchild['label_'+$i18n.locale] || subchild.label }}
                 </template>
                 <template v-if="subchild.path" #footer>
@@ -95,7 +95,7 @@ import type { container } from '#build/ui'
                   }"
                 >
                   <template #header>
-                    <img :src="subchild.menu_featured_image"/>
+                    <img v-if="subchild.menu_featured_image" :src="(/^\//.test(subchild.menu_featured_image)?$config.app.baseURL:'') + subchild.menu_featured_image" />
                     <h4 style="position: relative; transform: translateY(-150%);" class="text-white">{{ subchild['label_'+$i18n.locale] || subchild.label }}</h4>
                   </template>
                     

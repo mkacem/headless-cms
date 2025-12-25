@@ -48,12 +48,7 @@ const paginatedPeople = computed(() => {
       </header>
  
       <div class="prose max-w-none">
-        <!-- <MDCRenderer :body="ast.body"/> -->
-        <body-parse v-if="post?.meta?.['body_'+$i18n.locale] || post?.body" :body="post?.meta?.['body_'+$i18n.locale] || post?.body" />
-        <!-- ==================================
-        <MDC v-if="post.meta['body_'+$i18n.locale]" :value="post?.meta['body_'+$i18n.locale]"/>
-        <ContentRenderer v-else-if="post.body":value="post.body" /> -->
-        
+        <body-parse v-if="post?.meta?.['body_'+$i18n.locale] || post?.body" :body="post?.meta?.['body_'+$i18n.locale] || post?.body" />        
         <p v-else class="text-gray-500">No content available.</p>
         <template v-if="post?.meta?.data_points">
           <LineChart :chart-data="{'labels': post?.meta?.data_points.map(dp => dp.label), 'datasets':[{'data': post?.meta?.data_points.map(dp => dp.value)}]}" />
