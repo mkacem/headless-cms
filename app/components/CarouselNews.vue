@@ -1,10 +1,16 @@
 <template>
-  <div class="lg:flex">
+  <div class="lg:flex gap-3">
     
-    <div class="controls ml-auto flex gap-2 lg:basis-1/3">
-      <h2>Latest Blog Posts {{ activeIndex }}</h2>
-      <button @click="prev">=Previous</button>
-      <button @click="next">Next=</button> 
+    <div class="carousel-left-side controls ml-auto text-center lg:text-left flex gap-2 flex-col lg:basis-1/3">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl text-pretty tracking-tight font-bold text-highlighted text-center">{{ $t('LATEST_BLOG_POSTS') }}</h2>
+      <div class="my-auto flex gap-3">
+        <UButton @click="prev" size="xl" trailing-icon="i-lucide-chevron-left" :disabled="disablePrev" class="rounded-full my-auto"></UButton>
+        <UButton @click="next" size="xl" trailing-icon="i-lucide-chevron-right" :disabled="disableNext" class="rounded-full my-auto"></UButton> 
+        
+      </div>
+      <div class="mt-auto">
+        <ULink :to="$localePath('/blog')" class=" p-3 font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-base gap-2 text-inverted hover:text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 rounded-lg my-auto text-sm font-medium">{{ $t('VIEW_ALL_POSTS') }} </ULink>  
+      </div>
     </div>
     <div class="carousel lg:basis-2/3">
       <UCarousel 
@@ -27,52 +33,69 @@
         <UBlogPost
           :title=" item?.meta['title_'+$i18n.locale] || item.title"
           :image="item?.meta?.featured_image" :alt="item?.meta['title_'+$i18n.locale] || item.title"
-          :date="item?.meta?.date"
           :authors="item?.meta?.authors"
-          :to="$localePath(item.path)"
           :ui="{
             root: 'h-full',
           }"
         >
+          <template #date>        
+            <NuxtTime
+              :datetime="new Date(item?.meta?.date)"
+              :locale="isocode"
+            />
+          </template>
           <template #description>
             <p class="line-clamp-2">{{ item?.meta['description_'+$i18n.locale] || item.description }}</p>
           </template>
+          <template #footer>
+            <div class="mt-2 text-end py-3 px-10">
+              <ULink :to="$localePath(item.path)">{{ $t('READ_MORE') }} -></ULink>
+            </div>
+          </template>
         </UBlogPost>
-        <!-- <img :src="item?.meta?.featured_image" :alt="item?.meta['title_'+$i18n.locale] || item.title" class="w-full h-48 object-cover mb-4" />
-        <h3>{{ item?.meta['title_'+$i18n.locale] || item.title }}</h3>
-        <p class="line-clamp-2">{{ item?.meta['description_'+$i18n.locale] || item.description }}</p>
-        <ULink  :to="$localePath(item.path)">{{ $t('READ_MORE') }}</ULink> -->
-      </UCarousel>
-      
+      </UCarousel>      
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { it } from '@nuxt/ui/runtime/locale/index.js'
+  const locales = useNuxtApp().$i18n.localeProperties
+  const isocode = computed(() => locales.value.language)
+  const  disableNext = ref(false)
+  const  disablePrev = ref(true)
+  const carousel = useTemplateRef('carousel')
 
   const { data: data } = await useAsyncData('blog', () => queryCollection('blog').all())
   const posts = computed(() => data.value?.filter(e=>e?.meta?.featured_image && e?.meta?.featured_image !='').sort((a:any,b:any) => new Date(b?.meta?.date) - new Date(a?.meta?.date)).slice(0, 8) || [])
 
-  const carousel = useTemplateRef('carousel')
-  const activeIndex = ref(0)
+  
 
 const prev = () => {
-  if(activeIndex.value > 0)
-  activeIndex.value--
-  select(activeIndex.value)
+  carousel.value?.emblaApi?.scrollPrev()
 }
-const next = () => {
-  if(activeIndex.value < posts.value.length -1)
-  activeIndex.value++
-  select(activeIndex.value)
+const next = () => {  
+  carousel.value?.emblaApi?.scrollNext()
 }
 const onSelect = (index: number) => {
-  activeIndex.value = index
+  setTimeout(() => {
+    if(carousel.value?.emblaApi?.slidesInView().includes(posts.value.length -1)){
+      disableNext.value = true
+    } else {
+      disableNext.value = false
+    }
+    if(carousel.value?.emblaApi?.slidesInView().includes(0)){
+      disablePrev.value = true
+    } else {
+      disablePrev.value = false
+    }
+
+  }, 300)
+  
 }
 
-const select = (index: number) => {
-  activeIndex.value = index
-  carousel.value?.emblaApi?.scrollTo(index)
-}
 </script>
+<style scoped>
+.carousel-left-side {
+  padding-left: calc((100vw - var(--ui-container)) / 2);
+}
+</style>

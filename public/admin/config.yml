@@ -7,6 +7,25 @@ media_folder: public/img
 public_folder: /img
 
 collections:
+  - name: layout/home
+    label: Layout
+    label_singular: Layout
+    folder: content/layout/home
+    create: true
+    fields: [
+      {name: title, label: Title, widget: string},
+      {name: body, label: Body, widget: markdown},
+    ]
+  - name: layout/testimonials
+    label: Layout
+    label_singular: Layout
+    folder: content/layout/testimonials
+    create: true
+    fields: [
+      {name: title, label: Title, widget: string},
+      {name: body, label: Body, widget: markdown},
+      {name: body2, label: Body2, widget: markdown},
+    ]
   - name: 'menus'
     label: 'Menus'
     folder: 'content/menus'
