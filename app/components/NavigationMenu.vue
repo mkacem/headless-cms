@@ -100,7 +100,7 @@ import type { container } from '#build/ui'
                   </template>
                     
                   <template #body>
-                    <MDC :value="subchild['menu_body_'+$i18n.locale] || subchild.menu_body" /> 
+                    <body-parse :body="subchild['menu_body_'+$i18n.locale] || subchild.menu_body" />
                   </template>
                   <template v-if="subchild.path" #footer>
                     <ULink :to="$localePath(subchild.path)">{{ $t('READ_MORE') }} <UIcon name="i-lucide-arrow-right" /></ULink>
