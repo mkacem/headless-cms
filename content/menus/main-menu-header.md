@@ -43,6 +43,7 @@ section_menu:
               *  Excepteur sint occaecat cupidatat non proide
               *  pariatur. Excepteur sint occaeca
             path: /blog
+            menu_featured_image: /img/my-go-to-apps-on-ubuntu-24.10-installation-insights.jpg
   - label: Our Talents
     label_fr: Nos talents
     path: /our-talents
