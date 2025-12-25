@@ -14,7 +14,7 @@ section_menu:
         section_menu_items:
           - label: Our Methodologie
             label_fr: Notre Methodologie
-      - {}
+            path: /our-methodology
   - label: Our Talents
     label_fr: Nos talents
     path: /our-talents
