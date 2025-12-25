@@ -32,7 +32,7 @@
       >
         <UBlogPost
           :title=" item?.meta['title_'+$i18n.locale] || item.title"
-          :image="item?.meta?.featured_image" :alt="item?.meta['title_'+$i18n.locale] || item.title"
+          :image="(/^\//.test(item?.meta?.featured_image)?$config.app.baseURL:'') + item?.meta?.featured_image"
           :authors="item?.meta?.authors"
           :ui="{
             root: 'h-full',
