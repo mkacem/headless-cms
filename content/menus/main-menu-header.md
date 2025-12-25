@@ -44,6 +44,22 @@ section_menu:
               *  pariatur. Excepteur sint occaeca
             path: /blog
             menu_featured_image: /img/my-go-to-apps-on-ubuntu-24.10-installation-insights.jpg
+          - label: Extended Team
+            label_fr: Equipe etudue
+            menu_featured_image: /img/vector-90.png
+            path: /blog
+            menu_body: |-
+              #### Reprehenderit in voluptate veli
+
+              * n reprehenderit in voluptate velin 
+              * reprehenderit in voluptate veli
+              * n reprehenderit in voluptate veli
+            menu_body_fr: |-
+              #### Reprehenderit in voluptate veli
+
+              * n reprehenderit in voluptate velin 
+              * reprehenderit in voluptate veli
+              * n reprehenderit in voluptate veli
   - label: Our Talents
     label_fr: Nos talents
     path: /our-talents
