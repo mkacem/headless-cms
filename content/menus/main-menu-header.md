@@ -70,10 +70,10 @@ section_menu:
               * n reprehenderit in voluptate veli
   - label: Our Talents
     label_fr: Nos talents
-    path: /our-talents
+    path: /contact
   - label: Case stadies
     label_fr: Etude de cas
-    path: /case-statdies
+    path: /blog
   - label: Blog
     label_fr: Blog
     path: /blog
